@@ -13,13 +13,13 @@ Added python script for work from [homlol pool](https://btc.homlol.ru/puzzle_poo
 # VanitySearch Integration with StartHomlolPool.py
 
 In this version from [allinbit](https://github.com/allinbit/VanitySearch/), a code snippet was added that, in addition to saving the found keys to a file (`-o out.txt`), also appends the results to a temporary file named `tmp_homlol_pool_found.txt` in the following format:
-
+```
 13dayFJBnRbcpzdEUah3jRKQCc2sUDctkW,80001aa2d4a0099d5
 1KGFdMivMMNTZKyGdW7zPSBHfCMgbuN4SJ,80001c73ce1f41d7f
 19yF7J3U2uA3N3U1ZDGHn4qAhQEyLWsjsF,80001dbb4a5a9443f
 1KVAjJ8KehwFfs5ke5WhsKtkTFcHZG4yCF,80001f58673171efd
 1ApcfYprNUim8EtiYnsbeNNBniP8eYsVxY,8000211eba65300d6
-
+```
 
 ## What is this for?
 This is so that upon completion of the `VanitySearch` process, the Python script `StartHomlolPool.py` can read this file to send the private keys for each of the addresses (flags) to the pool.
@@ -98,12 +98,13 @@ Yes, good luck to everyone!
 Добавлен скрипт на python для работы с [homlol pool](https://btc.homlol.ru/puzzle_pool)
 
 В этой версии от [allinbit](https://github.com/allinbit/VanitySearch/) был добавлен фрагмент кода который по мимо сохранения найденых ключей в файл (-o out.txt) так же добавляет результат во временный файл tmp_homlol_pool_found.txt в виде:
-
+```
 13dayFJBnRbcpzdEUah3jRKQCc2sUDctkW,80001aa2d4a0099d5
 1KGFdMivMMNTZKyGdW7zPSBHfCMgbuN4SJ,80001c73ce1f41d7f
 19yF7J3U2uA3N3U1ZDGHn4qAhQEyLWsjsF,80001dbb4a5a9443f
 1KVAjJ8KehwFfs5ke5WhsKtkTFcHZG4yCF,80001f58673171efd
 1ApcfYprNUim8EtiYnsbeNNBniP8eYsVxY,8000211eba65300d6
+```
 
 ### Для чего это нужно?
 Для того чтобы по завершению поиска VanitySearch, python скрипт StartHomlolPool.py мог считать этот файл для отправки закрытых ключей к каждому из адресов (флагов) в пул.
