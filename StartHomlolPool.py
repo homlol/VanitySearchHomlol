@@ -97,6 +97,10 @@ if __name__ == "__main__":
 		print('--------------------------------------------------------------------------')
 		print('----------------------- BITCOIN PUZZLE HoMLoL POOL -----------------------')
 		print('--------------------------------------------------------------------------')
+		print('-- Questions/Offers: TG @homlol_official                                --')
+		print('-- Group: TG @homlol_pool                                               --')
+		print('-- Donate BTC: bc1qdn2wng73y80phr7kul5aa24n850f5c82zwq27h               --')
+		print('--------------------------------------------------------------------------')
 
 		print('*** Synchronization of checked range ***')
 		checked_range = takeCheckedRange()
