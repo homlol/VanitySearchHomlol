@@ -1,2 +1,2 @@
-StartHomlolPool.py
+python StartHomlolPool.py
 pause

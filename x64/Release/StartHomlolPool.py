@@ -105,7 +105,7 @@ if __name__ == "__main__":
 
 		print('*** Synchronization of checked range ***')
 		checked_range = takeCheckedRange()
-		print(f'* Total checked: {len(checked_range['result'])}')
+		print(f'* Total checked: {len(checked_range["result"])}')
 		for i in checked_range['result']:
 			mass_checked_range[i] = i
 
@@ -114,6 +114,7 @@ if __name__ == "__main__":
 			page = random.randint(1, n)
 			if page not in mass_checked_range:
 				break
+		page = 868576
 
 		print(f'* Range number: {page}')
 		print('* Addresses for search:')

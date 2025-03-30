@@ -104,7 +104,7 @@ if __name__ == "__main__":
 
 		print('*** Synchronization of checked range ***')
 		checked_range = takeCheckedRange()
-		print(f'* Total checked: {len(checked_range['result'])}')
+		print(f'* Total checked: {len(checked_range["result"])}')
 		for i in checked_range['result']:
 			mass_checked_range[i] = i
 

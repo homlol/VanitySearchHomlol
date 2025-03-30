@@ -48,7 +48,6 @@ To link `VanitySearch` with the script `StartHomlolPool.py`, you need to:
     f_pool = fopen(outputFile_homlol_pool.c_str(), "a");
     if (f_pool == NULL) {
         fprintf(stderr, "Cannot open %s for writing\n", outputFile_homlol_pool.c_str());
-        f_pool = stdout;
     }
 
     tmp_found_address = addr.c_str();
@@ -57,6 +56,9 @@ To link `VanitySearch` with the script `StartHomlolPool.py`, you need to:
     outputFile_homlol_pool_info = tmp_found_address + "," + tmp_found_private + "\n";
 
     fprintf(f_pool, outputFile_homlol_pool_info.c_str());
+
+    fflush(f_pool);
+    fclose(f_pool);
 
     // pool save to tmp file end <-
     ```
@@ -131,7 +133,6 @@ Yes, good luck to everyone!
     f_pool = fopen(outputFile_homlol_pool.c_str(), "a");
     if (f_pool == NULL) {
         fprintf(stderr, "Cannot open %s for writing\n", outputFile_homlol_pool.c_str());
-        f_pool = stdout;
     }
 
     tmp_found_address = addr.c_str();
@@ -140,6 +141,9 @@ Yes, good luck to everyone!
     outputFile_homlol_pool_info = tmp_found_address + "," + tmp_found_private + "\n";
 
     fprintf(f_pool, outputFile_homlol_pool_info.c_str());
+
+    fflush(f_pool);
+    fclose(f_pool);
 
     // pool save to tmp file end <-
     ```
