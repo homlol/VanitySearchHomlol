@@ -114,7 +114,6 @@ if __name__ == "__main__":
 			page = random.randint(1, n)
 			if page not in mass_checked_range:
 				break
-		page = 868576
 
 		print(f'* Range number: {page}')
 		print('* Addresses for search:')
