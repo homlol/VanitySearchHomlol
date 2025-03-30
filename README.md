@@ -85,7 +85,8 @@ Yes, in the folder `x64\Release`, there is a ready-to-use build with the script 
 
 Yes, good luck to everyone!
 
-
+# For coffee and rolls ;)
+### BTC: bc1qdn2wng73y80phr7kul5aa24n850f5c82zwq27h
 
 ## RU
 
@@ -159,6 +160,9 @@ VanitySearch не должен иметь доступ в интернет, он
 
 ### Удача?
 Да, удачи всем!
+
+# На кофе с булочками ;)
+### BTC: bc1qdn2wng73y80phr7kul5aa24n850f5c82zwq27h
 
 # Build
 ## Windows
