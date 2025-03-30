@@ -90,71 +90,67 @@ if __name__ == "__main__":
 
 	while True:
 		quantity+=1
-		if not os.path.exists(f"{main_path}{name_out_file}"):
 
-			os.system('cls')
+		os.system('cls')
 
-			mass_checked_range = {}
+		mass_checked_range = {}
 
-			print('--------------------------------------------------------------------------')
-			print('----------------------- BITCOIN PUZZLE HoMLoL POOL -----------------------')
-			print('--------------------------------------------------------------------------')
+		print('--------------------------------------------------------------------------')
+		print('----------------------- BITCOIN PUZZLE HoMLoL POOL -----------------------')
+		print('--------------------------------------------------------------------------')
 
-			print('*** Synchronization of checked range ***')
-			checked_range = takeCheckedRange()
-			print(f'* Total checked: {len(checked_range['result'])}')
-			for i in checked_range['result']:
-				mass_checked_range[i] = i
+		print('*** Synchronization of checked range ***')
+		checked_range = takeCheckedRange()
+		print(f'* Total checked: {len(checked_range['result'])}')
+		for i in checked_range['result']:
+			mass_checked_range[i] = i
 
-			print('*** Select random range ***')
-			while True:
-				page = random.randint(1, n)
-				if page not in mass_checked_range:
-					break
+		print('*** Select random range ***')
+		while True:
+			page = random.randint(1, n)
+			if page not in mass_checked_range:
+				break
 
-			print(f'* Range number: {page}')
-			print('* Addresses for search:')
-			select_range = selectRange(page)
+		print(f'* Range number: {page}')
+		print('* Addresses for search:')
+		select_range = selectRange(page)
 
-			file_path = f'{main_path}{name_in_file}'
+		file_path = f'{main_path}{name_in_file}'
 
-			with open(file_path, 'w', encoding='utf-8') as file:
-				for i in select_range['addresses']:
-					file.write(str(i)+"\n")
-					print(f'\t - {i}')
-			range_hex = get_range_by_part(a, b, n, page)
-			print(f'* Range hex: {range_hex[0]}:{range_hex[1]}')
+		with open(file_path, 'w', encoding='utf-8') as file:
+			for i in select_range['addresses']:
+				file.write(str(i)+"\n")
+				print(f'\t - {i}')
+		range_hex = get_range_by_part(a, b, n, page)
+		print(f'* Range hex: {range_hex[0]}:{range_hex[1]}')
 
-			os.system(f'{main_path}VanitySearch.exe -t 0 -gpu -gpuId 0 -i {main_path}{name_in_file} -o {main_path}{name_out_file} --keyspace {range_hex[0]}:{range_hex[1]}')
+		os.system(f'{main_path}VanitySearch.exe -t 0 -gpu -gpuId 0 -i {main_path}{name_in_file} -o {main_path}{name_out_file} --keyspace {range_hex[0]}:{range_hex[1]}')
 
-			db_mass = {}
-			with open(f'{main_path}tmp_homlol_pool_found.txt', 'r') as bs: # tmp_homlol_pool_found.txt имя файла в который сохраняются адреса и приватные ключи для проверки. НЕ МЕНЯТЬ!
-				for i in bs.readlines():
-					addr, key = i.strip().split(',')
-					db_mass[addr] = key
+		db_mass = {}
+		with open(f'{main_path}tmp_homlol_pool_found.txt', 'r') as bs: # tmp_homlol_pool_found.txt имя файла в который сохраняются адреса и приватные ключи для проверки. НЕ МЕНЯТЬ!
+			for i in bs.readlines():
+				addr, key = i.strip().split(',')
+				db_mass[addr] = key
 
-			print(db_mass)
+		print(db_mass)
 
-			if main_address in db_mass: # если нашли основной ключ!!!!
-				print(f'Address: {main_address}')
-				print(f'Private key: {db_mass[main_address]}')
-				print('--------------------------------------- !!! НАЙДЕНО !!! ------------------------------------------')
-				break;
-			else: # если нет, отправляем инфу в пул
-				new_mass_for_send = {}
-				for i in select_range['addresses']:
-					try:
-						new_mass_for_send[i] = db_mass[i]
-					except:
-						pass
-
-				if not new_mass_for_send:
-					print("* Error: Not data for send")
-				else:
-					print(setRange(page, comment, new_mass_for_send))
-		else:
+		if main_address in db_mass: # если нашли основной ключ!!!!
+			print(f'Address: {main_address}')
+			print(f'Private key: {db_mass[main_address]}')
 			print('--------------------------------------- !!! НАЙДЕНО !!! ------------------------------------------')
 			break;
+		else: # если нет, отправляем инфу в пул
+			new_mass_for_send = {}
+			for i in select_range['addresses']:
+				try:
+					new_mass_for_send[i] = db_mass[i]
+				except:
+					pass
+
+			if not new_mass_for_send:
+				print("* Error: Not data for send")
+			else:
+				print(setRange(page, comment, new_mass_for_send))
 
 
 
