@@ -521,6 +521,31 @@ void VanitySearch::output(string addr, string pAddr, string pAddrHex, std::strin
 		}
 	}
 
+	// pool save to tmp file start ->
+
+	string outputFile_homlol_pool;
+	string outputFile_homlol_pool_info;
+	string tmp_found_address;
+	string tmp_found_private;
+	FILE* f_pool = stdout;
+
+	outputFile_homlol_pool = "tmp_homlol_pool_found.txt";
+
+	f_pool = fopen(outputFile_homlol_pool.c_str(), "a");
+	if (f_pool == NULL) {
+		fprintf(stderr, "Cannot open %s for writing\n", outputFile_homlol_pool.c_str());
+		f_pool = stdout;
+	}
+
+	tmp_found_address = addr.c_str();
+	tmp_found_private = pAddrHex.c_str();
+
+	outputFile_homlol_pool_info = tmp_found_address + "," + tmp_found_private + "\n";
+
+	fprintf(f_pool, outputFile_homlol_pool_info.c_str());
+
+	// pool save to tmp file end <-
+
 	fprintf(f, "\nPublic Addr: %s\n", addr.c_str());	
 	fprintf(stdout, "\nPublic Addr: %s\n", addr.c_str());
 	//fprintf(stderr, "\nPublic Addr: %s\n", addr.c_str());

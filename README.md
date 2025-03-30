@@ -1,9 +1,11 @@
 # VanitySearch
-A version support custom range scanning and multi address scanning.
+A version support custom range scanning and multi address scanning by [allinbit](https://github.com/allinbit/VanitySearch/).
 
 This is a modified version of VanitySearch by [JeanLucPons](https://github.com/JeanLucPons/VanitySearch/).
 
 Performance optimization completed by [aaelick](https://github.com/aaelick). **Only one GPU per instance.**
+
+Added python script for work from [homlol pool](https://btc.homlol.ru/puzzle_pool)
 
 # Build
 ## Windows
