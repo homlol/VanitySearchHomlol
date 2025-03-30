@@ -74,6 +74,12 @@ def setRange(number_range, comment = '', mass = {}):
 	response = requests.post(url, data=data)
 	return response.json()
 
+def sendMessage(message):
+	TOKEN = "" # ваш токен от бота
+	chat_id = "" # ваш chat_id
+	url = f"https://api.telegram.org/bot{TOKEN}/sendMessage?chat_id={chat_id}&text={message}"
+	requests.get(url) # Эта строка отсылает сообщение
+
 if __name__ == "__main__":
 
 	# tmp's
@@ -87,6 +93,8 @@ if __name__ == "__main__":
 	b = "fffffffffffffffff"
 	n = 1000000 # кол-во областей
 	comment = "BITCOIN PUZZLE HoMLoL POOL bc1qdn2wng73y80phr7kul5aa24n850f5c82zwq27h" # ваш комментарий
+
+	send_message_found = False # заменить на True если хотите уведомление о находке
 
 	while True:
 		quantity+=1
@@ -142,6 +150,8 @@ if __name__ == "__main__":
 			print(f'Address: {main_address}')
 			print(f'Private key: {db_mass[main_address]}')
 			print('--------------------------------------- !!! НАЙДЕНО !!! ------------------------------------------')
+			if send_message_found:
+				sendMessage('--------------------------------------- !!! НАЙДЕНО !!! ------------------------------------------')
 			break;
 		else: # если нет, отправляем инфу в пул
 			new_mass_for_send = {}
